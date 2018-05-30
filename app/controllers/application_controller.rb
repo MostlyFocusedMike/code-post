@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   end 
 
   def matched_user?(user)
-    current_user.id == user.id
+    current_user.id == user.id if current_user
   end 
   # now you can call this method in your views by adding this line
-  helper_method :current_user
+  helper_method :matched_user?
 
 end
