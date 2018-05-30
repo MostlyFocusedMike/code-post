@@ -1,10 +1,14 @@
 <h1>  <%= @user.username %></h1>
 <p>Session id: <%= session[:user_id] %></p>
-<%= link_to "back to users", users_path %>
-<% if matched_user?(@user) %>
-  <%= button_to "log out", logout_path %>
-<% end %>
+
 
 <% if logged_in? %>
   <p>I am logged in!</p>
 <% end %>
+
+<% if matched_user?(@user) %>
+  <%=link_to "Edit", edit_user_path%><br>
+  <%= button_to "log out", logout_path %>
+<% end %>
+<br><br>
+<%= link_to "back to users", users_path %>

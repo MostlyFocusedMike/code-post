@@ -1,5 +1,9 @@
 <h1>edit page</h1>
 <%= form_for @user do |f| %>
 <%=render partial: 'form', locals: {f: f}%>
+<%= f.label :bio %>
+<%= f.text_area :bio %>
+<br>
+<%= f.submit %>
 
 <% end %>
