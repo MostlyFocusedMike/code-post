@@ -1,0 +1,44 @@
+MODELS: 
+  Profile 
+    -has a username, email, password_digest, bio
+  Post
+    -has a title, content
+  Comment
+    -has a profile, post, and content 
+
+CONTROLLERS 
+  ProfilesController
+    NO: index, delete
+    Show
+      -shows a profile, will change depending on who is logged in
+      -will show a short bio about the user, if the user visits their own 
+       profile, there will be an edit link 
+    New 
+      -the signup page to create a new user 
+    Create 
+      -creates a new user 
+    edit/update 
+      -allows user to edit their username, password, bio 
+ 
+  PostsController
+    NO: delete, edit, update 
+      Index
+        -main page of site, shows all posts and the number of comments on each post 
+      Show
+        -shows individual post with all its comments 
+      New
+        -form to create new post 
+      Create 
+        -creates new post 
+      
+  CommentsController 
+    NONE: you would see all comments on a post, or by a user, but never all comments or 
+    seeing each comment alone 
+
+  SessionsController 
+    get login 
+      a form for loging in with your username/email and password 
+    post login 
+      a form that logs in an directs you to the homepage 
+    post logout
+      destroy the session and log out 
