@@ -1,12 +1,25 @@
+<%= link_to "Back to posts", posts_path%><br><br>
+
 <h1><%= @post.title %></h1>
+<p>By <%= link_to @post.user.username, user_path(@post.user) %></p>
+<p><%= @post.content %></p>
+<br />
+<br />
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <hr />
+  <%= comment.content %><br>
+  <p>-<%= link_to comment.user.username, user_path(comment.user) %></p>
+  <hr />
+<% end %>
+<br />
+<br />
+<br />
+<br />
+
+<p>------------------------------------------------------------------------------</p>
+<h3>Debugging stuff</h3>
 <% if logged_in? %>
   <p>You are logged in and your session id is:</p>
   <%= session[:user_id] %>
-  <h2>By <%= link_to @post.user.username, user_path(@post.user) %></h2>
-<% end %>
-<p><%= @post.content %></p>
-<%= link_to "Back to posts", posts_path%><br><br>
-<% @post.comments.each do |comment| %>
-  <%= comment.content %><br>
-  <p>-<%= link_to comment.user.username, user_path(comment.user) %></p><br>
 <% end %>
