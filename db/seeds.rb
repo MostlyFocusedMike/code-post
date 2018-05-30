@@ -3,18 +3,18 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create([{ username: 'Star Wars' }, { username: 'Lord of the Rings' }])
+#   Character.create(username: 'Luke', movie: movies.first)
 
-Profile.destroy_all 
+User.destroy_all 
 Post.destroy_all
 Comment.destroy_all
 
-steve = Profile.create(name: "Steve", bio: "A real cool dude", email: "steve@gmail.com", password: "steve")
-karen = Profile.create(name: "Karen", bio: "A real cool lady", email: "karen@gmail.com", password: "karen")
-sarah = Profile.create(name: "Sarah", bio: "Just a girl and her camera", email: "sarah@gmail.com", password: "sarah")
-chris = Profile.create(name: "Chris", bio: "Get that rat away from my code", email: "chris@gmail.com", password: "chris")
-mike = Profile.create(name: "Mike", bio: "I need to stop talking about Vim", email: "mike@gmail.com", password: "mike")
+steve = User.create(username: "Steve", bio: "A real cool dude", email: "steve@gmail.com", password: "steve")
+karen = User.create(username: "Karen", bio: "A real cool lady", email: "karen@gmail.com", password: "karen")
+sarah = User.create(username: "Sarah", bio: "Just a girl and her camera", email: "sarah@gmail.com", password: "sarah")
+chris = User.create(username: "Chris", bio: "Get that rat away from my code", email: "chris@gmail.com", password: "chris")
+mike = User.create(username: "Mike", bio: "I need to stop talking about Vim", email: "mike@gmail.com", password: "mike")
 
 steve.posts.create(title: "First post", content: "This is my first post here, I hope you like it")
 steve.posts.create(title: "Second post", content: "This is my second post here, it's even better now")

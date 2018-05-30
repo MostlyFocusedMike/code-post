@@ -1,16 +1,16 @@
 <h1>NEW FORM HERE </h1>
-<% if @profile.errors.any? %>
+<% if @user.errors.any? %>
   <ul>
-    <% @profile.errors.full_messages.each do |error| %>
+    <% @user.errors.full_messages.each do |error| %>
        <li><%= error %></li>
     <% end %>
   </ul>
 
 
 <% end %>
-<%= form_for @profile do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: "Your username here"%><br />
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username, placeholder: "Your username here"%><br />
 
   <%= f.label :email %>
   <%= f.email_field :email, placeholder: "user@example.com" %><br />
