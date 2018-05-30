@@ -1,4 +1,4 @@
-<h1>NEW FORM HERE </h1>
+
 <% if @user.errors.any? %>
   <ul>
     <% @user.errors.full_messages.each do |error| %>
@@ -6,9 +6,7 @@
     <% end %>
   </ul>
 
-
 <% end %>
-<%= form_for @user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username, placeholder: "Your username here"%><br />
 
@@ -22,4 +20,3 @@
   <%= f.password_field :password_confirmation %><br />
 
   <%= f.submit %>
-<% end %>
