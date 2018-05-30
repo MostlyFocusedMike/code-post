@@ -1,5 +1,10 @@
 <h1>ALL POSTS HERE</h1>
-<%= link_to "New Post", new_post_path %>
+<% if logged_in? %>
+  <%= link_to "New Post", new_post_path %>
+  <% else %>
+  <p><%= link_to "log in to make a new post", login_path %></p>
+<% end %>
+
 <% @posts.each do |post| %>
 <h2><%= link_to post.title, post_path(post) %></h2>
 <p><%= post.content %></p>
