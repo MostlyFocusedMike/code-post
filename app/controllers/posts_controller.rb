@@ -9,7 +9,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if logged_in?
+      @post = Post.new
+    else
+      flash[:log_in_warning] = "You have to be logged in to make a new post"
+      redirect_to login_path
+    end
   end
 
   def create
