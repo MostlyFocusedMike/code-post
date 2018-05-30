@@ -1,5 +1,9 @@
 <h1><%= @post.title %></h1>
-<h2>By <%= link_to @post.user.username, user_path(@post.user) %></h2>
+<% if logged_in? %>
+  <p>You are logged in and your session id is:</p>
+  <%= session[:user_id] %>
+  <h2>By <%= link_to @post.user.username, user_path(@post.user) %></h2>
+<% end %>
 <p><%= @post.content %></p>
 <%= link_to "Back to posts", posts_path%><br><br>
 <% @post.comments.each do |comment| %>
