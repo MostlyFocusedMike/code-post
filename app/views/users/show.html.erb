@@ -1,6 +1,7 @@
 <h1>  <%= @user.username %></h1>
 <p>Session id: <%= session[:user_id] %></p>
-
+<p> Email: <%= @user.email %> </p>
+<h2> About <%=@user.username%>:  </h2> <p><%= @user.bio %></p>
 
 <% if logged_in? %>
   <p>I am logged in!</p>
