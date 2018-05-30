@@ -1,0 +1,5 @@
+<h1>All Profiles</h1>
+
+<% @profiles.each do |profile| %>
+  <p><%= link_to profile.name, profile_path(profile) %></p>
+<% end %>
