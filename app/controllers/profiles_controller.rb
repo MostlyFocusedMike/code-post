@@ -12,7 +12,12 @@ class ProfilesController < ApplicationController
   end 
 
   def create 
-    byebug
+    @profile = Profile.new(profile_params)
+    if @profile.save 
+      redirect_to profile_path(@profile)
+    else 
+      render "new"
+    end 
   end 
 
   private

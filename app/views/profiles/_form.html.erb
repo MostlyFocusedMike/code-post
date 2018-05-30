@@ -1,4 +1,13 @@
 <h1>NEW FORM HERE </h1>
+<% if @profile.errors.any? %>
+  <ul>
+    <% @profile.errors.full_messages.each do |error| %>
+       <li><%= error %></li>
+    <% end %>
+  </ul>
+
+
+<% end %>
 <%= form_for @profile do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: "Your username here"%><br />
