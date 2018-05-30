@@ -4,3 +4,7 @@
 <% if matched_user?(@user) %>
   <%= button_to "log out", logout_path %>
 <% end %>
+
+<% if logged_in? %>
+  <p>I am logged in!</p>
+<% end %>
