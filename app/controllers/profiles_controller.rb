@@ -14,4 +14,9 @@ class ProfilesController < ApplicationController
   def create 
     byebug
   end 
+
+  private
+    def profile_params
+      params.require(:profile).permit(:name, :email, :password, :password_confirmation)
+    end
 end
