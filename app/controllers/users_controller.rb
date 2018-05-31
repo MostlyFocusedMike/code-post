@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  def index # FOR NOW ONLY
-    @users = User.all
-  end
 
   def show
   end
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to posts_path
+    else
+      @user = User.new
+    end
   end
 
   def create
