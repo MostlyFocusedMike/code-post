@@ -1,14 +1,6 @@
-<h1>  <%= @user.username %></h1>
-<p> Email: <%= @user.email %> </p>
-<h2> About <%=@user.username%>:  </h2> <p><%= @user.bio %></p>
-
-<% if matched_user?(@user) %>
-  <%=link_to "Edit", edit_user_path%><br>
-  <%= button_to "log out", logout_path %>
-<% end %>
-<br><br>
+<%=render 'user'%>
 <%# REMEMBER TO CHANGE THE PATH OF THE PLACEHOLDER  %>
-<h3>Posts By <%= @user.username %> | <%= link_to "posts #{@user.username} commented on", posts_path %></h3>
+<h3>Posts By <%= @user.username %> | <%= link_to "posts #{@user.username} commented on", user_comments_path(@user) %></h3>
 <hr />
 <% @user.posts.each do |post| %>
   <%= link_to post.title, post_path(post) %><br />
