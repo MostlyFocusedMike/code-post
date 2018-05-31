@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:username])
+    @user = User.where('LOWER(username) = LOWER(?)', params[:username])[0]
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to posts_path
