@@ -1,8 +1,13 @@
 <h1>ALL POSTS HERE</h1>
+
 <% if logged_in? %>
   <%= link_to "New Post", new_post_path %>
   <% else %>
   <p><%= link_to "log in to make a new post", login_path %></p>
+  <div class="login-form">
+    <h3>Login Form</h3>
+    <%= render 'sessions/login_form' %>
+  </div>
 <% end %>
 
 <% @posts.each do |post| %>

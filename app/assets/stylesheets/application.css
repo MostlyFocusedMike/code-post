@@ -17,4 +17,7 @@
 h1 {
   font-family: Arial;
 }
-
+div.login-form {
+  float: right;
+  padding-right: 25%;
+}
