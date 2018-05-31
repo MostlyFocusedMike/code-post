@@ -1,21 +1,12 @@
 <%=render 'user'%>
 <%# REMEMBER TO CHANGE THE PATH OF THE PLACEHOLDER  %>
-<h3>Posts By <%= @user.username %> | <%= link_to "posts #{@user.username} commented on", user_comments_path(@user) %></h3>
+<h3>Posts By <%= @user.username %> <em>See <%= link_to "posts #{@user.username} commented on", user_comments_path(@user) %></em></h3>
 <hr />
 <% @user.posts.each do |post| %>
   <%= link_to post.title, post_path(post) %><br />
   <hr />
 <% end %>
-<h3>Commented on Posts</h3>
 
-<%@user.commented_posts.uniq.each do |post| %>
-<h1><%= link_to post.title, post_path(post) %></h1>
-  <% post.comments.each do |comment| %>
-    <% if comment.user == @user %>
-    <p>  <%= comment.content%></p>
-    <% end %>
-  <% end %>
-<% end %>
 <br />
 <br />
 <br />

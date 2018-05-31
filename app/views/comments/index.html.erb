@@ -1,5 +1,6 @@
 <%= render 'users/user' %>
-<h3>Commented on Posts</h3>
+<h3><%= "Posts #{@user.username} Commented On" %>, <em>See <%= link_to "Posts By #{@user.username}", user_path(@user) %></em></h3>
+<hr />
 
 <%@user.commented_posts.uniq.each do |post| %>
 <h1><%= link_to post.title, post_path(post) %></h1>
@@ -9,3 +10,16 @@
     <% end %>
   <% end %>
 <% end %>
+
+<br />
+<br />
+<br />
+<br />
+<p>-------------------------------------------------</p>
+<p>DEBUG STUFF</p>
+<%= link_to "back to users", users_path %><br />
+<%= link_to "back to posts", posts_path %>
+<% if logged_in? %>
+  <p>I am logged in!</p>
+<% end %>
+<p>Session id: <%= session[:user_id] %></p>
