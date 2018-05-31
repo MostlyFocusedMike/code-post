@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources 'users', except: [:index, :destroy] do # remove user index for actual production
     resources 'comments', only: [:index]
   end
+  get 'users/:id/edit_password', to: "users#edit_password", as: "edit_password"
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
