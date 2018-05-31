@@ -4,11 +4,15 @@ class CommentsController < ApplicationController
     #     https:/site.com/posts/2
     # so we use regex to pull the post number to use as our id 
    post_id = request.referer.match(/.+\/(\d)/).captures[0]
-
-   user_id = session[:user_id]
    content = params[:comment][:content]
-   Comment.create(user_id: user_id, post_id: post_id, content: content)
-
+   
+   # checks to see if there are any words in the comment 
+   if content =~ /\w/
+     user_id = session[:user_id]
+     Comment.create(user_id: user_id, post_id: post_id, content: content)
+   else 
+     flash[:comment_warning] = "Don't leave a blank comment"
+   end 
    redirect_to post_path(post_id)
   end 
 
