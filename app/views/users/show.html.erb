@@ -7,9 +7,13 @@
   <%= button_to "log out", logout_path %>
 <% end %>
 <br><br>
-<%= link_to "back to users", users_path %><br />
-<%= link_to "back to posts", posts_path %>
-
+<%# REMEMBER TO CHANGE THE PATH OF THE PLACEHOLDER  %>
+<h3>Posts By <%= @user.username %> | <%= link_to "posts #{@user.username} commented on", posts_path %></h3>
+<hr />
+<% @user.posts.each do |post| %>
+  <%= link_to post.title, post_path(post) %><br />
+  <hr />
+<% end %>
 
 <br />
 <br />
@@ -17,6 +21,8 @@
 <br />
 <p>-------------------------------------------------</p>
 <p>DEBUG STUFF</p>
+<%= link_to "back to users", users_path %><br />
+<%= link_to "back to posts", posts_path %>
 <% if logged_in? %>
   <p>I am logged in!</p>
 <% end %>
