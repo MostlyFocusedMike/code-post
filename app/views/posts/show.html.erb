@@ -45,7 +45,9 @@
 <br />
 <br />
 <br />
-<%= button_to 'delete', post_path(@post), method: 'delete' %>
+<% if matched_user?(@post.user) %>
+  <%= button_to 'delete', post_path(@post), method: 'delete' %>
+<% end %>
 
 <p>------------------------------------------------------------------------------</p>
 <h3>Debugging stuff</h3>
