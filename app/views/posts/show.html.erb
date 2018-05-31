@@ -18,6 +18,7 @@
   <hr />
   <%= comment.content %><br>
   <p>-<%= link_to comment.user.username, user_path(comment.user) %></p>
+  <%= button_to "delete", comment_path(comment), method: "delete" %>
   <hr />
 <% end %>
 <br />
