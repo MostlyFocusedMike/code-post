@@ -3,7 +3,6 @@
 <h2> About <%=@user.username%>:  </h2> <p><%= @user.bio %></p>
 
 <% if matched_user?(@user) %>
-  <%=link_to "Edit", edit_user_path(@user)%><br>
-  <%= button_to "log out", logout_path %>
+  <%=link_to "Edit User info", edit_user_path(@user)%><br>
 <% end %>
 <br><br>
