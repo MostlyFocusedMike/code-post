@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     # the request.referer returns the page the form came from: 
     #     https:/site.com/posts/2
     # so we use regex to pull the post number to use as our id 
-   post_id = request.referer.match(/.+\/posts\/(\d)/).captures[0]
+   post_id = params[:post_id]
    content = params[:comment][:content]
    
    # checks to see if there are any words in the comment 

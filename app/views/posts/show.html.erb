@@ -13,7 +13,7 @@
     <p><%= flash[:comment_warning] %></p>
   <% end %>
 
-  <%= form_for @comment do |f| %>
+  <%= form_for [@post, @comment] do |f| %>
     <%= f.text_area :content %><br />
     <%= f.submit "Post Comment" %>
   <% end %>
@@ -28,7 +28,7 @@
   <%= comment.content %><br>
   <p>-<%= link_to comment.user.username, user_path(comment.user) %></p>
   <% if matched_user?(comment.user) %>
-    <%= button_to "delete", comment_path(comment), method: "delete" %>
+    <%= button_to "delete", post_comment_path(@post, comment), method: "delete" %>
   <% end %>
   <hr />
 <% end %>
