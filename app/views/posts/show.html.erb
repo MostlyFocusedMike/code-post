@@ -1,5 +1,3 @@
-<%= link_to "Back to posts", posts_path%><br><br>
-
 <h1><%= @post.title %></h1>
 <p>By <%= link_to @post.user.username, user_path(@post.user) %></p>
 <p><%= @post.content %></p>
