@@ -1,15 +1,23 @@
 <h1>  <%= @user.username %></h1>
-<p>Session id: <%= session[:user_id] %></p>
 <p> Email: <%= @user.email %> </p>
 <h2> About <%=@user.username%>:  </h2> <p><%= @user.bio %></p>
-
-<% if logged_in? %>
-  <p>I am logged in!</p>
-<% end %>
 
 <% if matched_user?(@user) %>
   <%=link_to "Edit", edit_user_path%><br>
   <%= button_to "log out", logout_path %>
 <% end %>
 <br><br>
-<%= link_to "back to users", users_path %>
+<%= link_to "back to users", users_path %><br />
+<%= link_to "back to posts", posts_path %>
+
+
+<br />
+<br />
+<br />
+<br />
+<p>-------------------------------------------------</p>
+<p>DEBUG STUFF</p>
+<% if logged_in? %>
+  <p>I am logged in!</p>
+<% end %>
+<p>Session id: <%= session[:user_id] %></p>
