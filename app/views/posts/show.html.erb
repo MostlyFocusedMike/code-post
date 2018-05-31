@@ -1,7 +1,7 @@
 <h1><%= @post.title %></h1>
 <p>By <%= link_to @post.user.username, user_path(@post.user) %></p>
 <p><%= @post.content %></p>
-<p><%= link_to "#{@post.url_name}", @post.url, target: :_blank %> </p>
+<p><%= link_to "Link", @post.url, target: :_blank %> </p>
 
 
 
