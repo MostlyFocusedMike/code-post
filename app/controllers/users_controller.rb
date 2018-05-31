@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    redirect_to user_path(@user) unless matched_user?(@user)
+    edit_gaurd
   end
 
   def update
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def edit_password
-
+    edit_gaurd
   end
 
   private
@@ -44,5 +44,9 @@ class UsersController < ApplicationController
     end
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def edit_gaurd
+      redirect_to user_path(@user) unless matched_user?(@user)
     end
 end
