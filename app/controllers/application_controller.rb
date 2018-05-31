@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     # this is extra explicit
-    session[:user_id] ? true : false 
+    !!session[:user_id] ? true : false 
   end 
 
   def matched_user?(user)
