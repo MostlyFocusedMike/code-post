@@ -1,25 +1,18 @@
+<div class="form-holder wide">
 <%= render 'users/user' %>
-<h3><%= "Posts #{@user.username} Commented On" %>, <em>See <%= link_to "Posts By #{@user.username}", user_path(@user) %></em></h3>
-<hr />
+<p class="psu-heading-2 left"><%= link_to "see posts by #{@user.username}", user_path(@user) %><%= "Posts #{@user.username} Commented On" %></p>
 
-<%@user.commented_posts.uniq.each do |post| %>
-<h1><%= link_to post.title, post_path(post) %></h1>
-  <% post.comments.each do |comment| %>
-    <% if comment.user == @user %>
-    <p>  <%= comment.content%></p>
+  <div class="user-posts">
+    <%@user.commented_posts.uniq.each do |post| %>
+      <hr />
+        <%= link_to post.title, post_path(post), class: "user-post-title" %>
+      <div class="comments-scroll">
+        <% post.comments.each do |comment| %>
+          <% if comment.user == @user %>
+          <p class="user-comment-content">  "<%= comment.content%>"</p>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
-<% end %>
-
-<br />
-<br />
-<br />
-<br />
-<p>-------------------------------------------------</p>
-<p>DEBUG STUFF</p>
-<%= link_to "back to users", users_path %><br />
-<%= link_to "back to posts", posts_path %>
-<% if logged_in? %>
-  <p>I am logged in!</p>
-<% end %>
-<p>Session id: <%= session[:user_id] %></p>
+  </div>
+</div>

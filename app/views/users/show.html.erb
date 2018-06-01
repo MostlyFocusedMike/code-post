@@ -1,22 +1,16 @@
-
+<div class="form-holder wide">
 <%=render 'user'%>
 <%# REMEMBER TO CHANGE THE PATH OF THE PLACEHOLDER  %>
-<h3>Posts By <%= @user.username %> <em>See <%= link_to "posts #{@user.username} commented on", user_comments_path(@user) %></em></h3>
-<hr />
-<% @user.posts.each do |post| %>
-  <%= link_to post.title, post_path(post) %><br />
-  <hr />
-<% end %>
+<p class="psu-heading-2 left">
+   <%= link_to "see posts #{@user.username} commented on", user_comments_path(@user) %>
+   Posts By <%= @user.username %>
+</p>
 
-<br />
-<br />
-<br />
-<br />
-<p>-------------------------------------------------</p>
-<p>DEBUG STUFF</p>
-<%= link_to "back to users", users_path %><br />
-<%= link_to "back to posts", posts_path %>
-<% if logged_in? %>
-  <p>I am logged in!</p>
+<div class="user-posts">
+  <% @user.posts.each do |post| %>
+    <hr />
+    <%= link_to post.title, post_path(post), class: "user-post-title" %><br />
 <% end %>
-<p>Session id: <%= session[:user_id] %></p>
+</div>
+
+</div>

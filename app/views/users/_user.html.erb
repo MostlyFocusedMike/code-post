@@ -1,8 +1,9 @@
-<h1>  <%= @user.username %></h1>
-<p> Email: <%= @user.email %> </p>
-<h2> About <%=@user.username%>:  </h2> <p><%= @user.bio %></p>
-
-<% if matched_user?(@user) %>
-  <%=link_to "Edit User info", edit_user_path(@user)%><br>
-<% end %>
-<br><br>
+<div class="user-profile">
+  <div>
+    <p class="psu-heading left">  <%= @user.username %></p> 
+    <p class="comment-content left"><%= @user.bio %></p>
+  </div>
+  <% if matched_user?(@user) %>
+    <%=link_to "Edit User info", edit_user_path(@user)%><br>
+  <% end %>
+</div>

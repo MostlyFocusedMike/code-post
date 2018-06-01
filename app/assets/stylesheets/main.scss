@@ -26,7 +26,7 @@
     color: $col;
   }
   &:hover {
-    color: lighten( $col, 50% );
+    color: lighten($col, 50% );
     -webkit-transition: color .25s; /* Safari */
     transition: color .25s;
   }
@@ -212,14 +212,15 @@ hr {
     width: 80%;
   }
   button, a {
-    width: 70%;
+    width: auto;
+    max-width: 18rem;
     margin: .5rem auto 1.5rem;
-    padding: .35rem;
+    padding: .35rem 1rem;
     background: #980000;
     color: white;
     font-weight: 200;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-align: center;
     display: block;
     &:hover {
@@ -231,15 +232,15 @@ hr {
   }
 }
 button {
-  width: 70%;
+  width: auto;
   max-width: 18rem;
   margin: .5rem auto 1.5rem;
-  padding: .35rem;
+  padding: .35rem 1rem;
   background: #980000;
   color: white;
   font-weight: 200;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-align: center;
   display: block;
   &:hover {
@@ -288,7 +289,7 @@ form {
   input[type=submit] {
     width: auto;
     margin: .5rem auto 1.5rem;
-    padding: .5rem;
+    padding: .5rem 1rem;
     background: #522;
     color: white;
     font-weight: 200;
@@ -301,6 +302,50 @@ form {
     }
     &:active {
       background: #720000;
+    }
+  }
+}
+
+.user-profile {
+  @extend %basic-flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+ }
+.wide {
+  width: 50%;
+}
+
+.user-posts {
+  text-align: left;
+  padding: 0;
+  width: 80%;
+  margin: 0 auto;
+  .user-post-title {
+    text-decoration: underline;
+    background: none;
+    color: #980000;
+    text-align: left;
+    font-size: 1.5rem;
+    text-align: left;
+    margin: 0;
+    &:visited {
+    }
+    &:hover {
+      background: none;
+      color: darken(#980000, 10%);
+    }
+    &:active {
+    }
+  }
+  .comments-scroll {
+    max-height: 6rem;
+    overflow-y: scroll;
+    .user-comment-content {
+      font-size: 1.25rem;
+      font-weight: 200;
+      margin: 1rem auto;
+      width: 90%;
     }
   }
 }
