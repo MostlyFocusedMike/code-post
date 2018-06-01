@@ -13,8 +13,6 @@ class ApplicationController < ActionController::Base
   def matched_user?(user)
     current_user.id == user.id if current_user
   end 
-  # now you can call this method in your views by adding this line
-  helper_method :matched_user?, :logged_in?
 
   def nice_format(user, text)
     str = matched_user?(user) ? "You have" : "#{user.username} has"
@@ -25,4 +23,6 @@ class ApplicationController < ActionController::Base
     end 
   end 
 
+  # now you can call this method in your views by adding this line
+  helper_method :current_user, :matched_user?, :logged_in?
 end
