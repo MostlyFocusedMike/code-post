@@ -5,14 +5,6 @@ class Post < ApplicationRecord
   attr_accessor :commentor_count
 
   def has_link?
-    !!self.url && self.url.length > 0
-  end
-
-  def comment_count
-    self.comments.length
-  end
-
-  def unique_user_count #im dumb
-    self.users.uniq.length
+    !!self.url && self.url =~ /\w/ 
   end
 end

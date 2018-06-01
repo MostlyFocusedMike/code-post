@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show, :destroy]
   def index
     @posts = Post.all
   end
@@ -26,7 +26,11 @@ class PostsController < ApplicationController
       render "new"
     end
   end
-
+  def destroy
+    @post.comments.destroy_all
+    @post.delete
+    redirect_to posts_path
+  end
   private
 
     def set_post
