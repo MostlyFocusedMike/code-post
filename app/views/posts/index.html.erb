@@ -5,8 +5,8 @@
          <div class="post-links-holder">
            <p class="post-links">
              <%= link_to "view post", post_path(post) %> l 
-             * comments l 
-             * users discussing l
+             <%= pluralize(post.comment_count, "comment")%> l 
+             <%= pluralize(post.unique_user_count, "user")%> l 
            </p>
            <p class="post-author"><%= link_to post.user.username, user_path(post.user)%></p>
          </div>

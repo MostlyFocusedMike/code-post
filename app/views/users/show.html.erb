@@ -1,6 +1,5 @@
 <div class="form-holder wide">
 <%=render 'user'%>
-<%# REMEMBER TO CHANGE THE PATH OF THE PLACEHOLDER  %>
 <p class="psu-heading-2 left">
    <%= link_to "see posts #{@user.username} commented on", user_comments_path(@user) %>
    Posts By <%= @user.username %>
