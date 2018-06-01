@@ -1,17 +1,30 @@
-<h1>ALL POSTS HERE</h1>
+ <div class="posts-holder">
+     <% @posts.each do |post| %>
+       <div class="post-box">
+         <p class="post-title"><%= link_to post.title, post_path(post) %></p>
+         <div class="post-links-holder">
+           <p class="post-links">
+             <%= link_to "view post", post_path(post) %> l 
+             * comments l 
+             * users discussing l
+           </p>
+           <p class="post-author"><%= link_to post.user.username, user_path(post.user)%></p>
+         </div>
+         <hr />
+       </div>
+     <% end %>
+</div>
 
+<div class="form-holder">
+  
 <% if logged_in? %>
-  <%= link_to "Make New Post", new_post_path %>
+    <p class="psu-heading">share some code</p>
+    <%= link_to "create a post", new_post_path %>
   <% else %>
-  <p>log in to make a new post</p>
-  <div class="login-form">
-    <h3>Login Form</h3>
+    <p class="psu-heading">log in</p>
     <%= render 'sessions/login_form' %>
   </div>
 <% end %>
 
-<% @posts.each do |post| %>
-<h2><%= link_to post.title, post_path(post) %></h2>
-<p><%= post.content %></p>
 
-<% end %>
+</div>

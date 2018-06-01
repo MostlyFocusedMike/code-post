@@ -1,12 +1,13 @@
-<h1>New Form</h1>
+<div class="form-holder">
+<p class="psu-heading">sign up</p>
 <%= form_for @user do |f| %>
 <%=render partial: 'form', locals: {f: f}%>
 
-<%= f.label :password %>
-<%= f.password_field :password %><br />
+<%= f.password_field :password, placeholder: "password" %><br />
 
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %><br />
+<%= f.password_field :password_confirmation, placeholder: "password confirmation"%><br />
 
-<%= f.submit %>
+
+  <button type="submit">sign up!</button>
 <% end %>
+</div>

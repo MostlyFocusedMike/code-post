@@ -1,14 +1,8 @@
-
 <% if @user.errors.any? %>
-  <ul>
-    <% @user.errors.full_messages.each do |error| %>
-       <li><%= error %></li>
-    <% end %>
-  </ul>
-
+  <% @user.errors.full_messages.each do |error| %>
+    <div class="notice"><span>*</span><%= error %></div>
+  <% end %>
 <% end %>
-  <%= f.label :username %>
-  <%= f.text_field :username, placeholder: "Your username here"%><br />
+<%= f.text_field :username, placeholder: "Your username here"%><br />
 
-  <%= f.label :email %>
-  <%= f.email_field :email, placeholder: "user@example.com" %><br />
+<%= f.email_field :email, placeholder: "user@example.com" %><br />

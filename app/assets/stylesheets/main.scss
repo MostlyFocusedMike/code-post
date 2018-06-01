@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 %compat-flex {
   display: -webkit-flex;
   display: flex;
@@ -11,7 +10,6 @@
 }
 %basic-flex {
   @extend %compat-flex;
-  align-items: center;
 }
 %flex-vert {
   @extend %compat-flex;
@@ -20,45 +18,73 @@
   justify-content: space-around;
 }
 
-%basic-link-white {
-  color: white;
+@mixin lighten-link($col) {
+  color: $col;
   -webkit-transition: color .25s; /* Safari */
   transition: color .25s;
   &:visited {
-    color: white;
+    color: $col;
   }
   &:hover {
-    color: #CCC;
+    color: lighten( $col, 50% );
     -webkit-transition: color .25s; /* Safari */
     transition: color .25s;
   }
   &:active {
-    color: #AAA;
+    color: lighten( $col, 80% );
+  }
+}
+
+@mixin darken-link($col) {
+  color: $col;
+  -webkit-transition: color .25s; /* Safari */
+  transition: color .25s;
+  &:visited {
+    color: $col;
+  }
+  &:hover {
+    color: darken( $col, 20% );
+    -webkit-transition: color .25s; /* Safari */
+    transition: color .25s;
+  }
+  &:active {
+    color: darken( $col, 80% );
   }
 }
 html {
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+    font-family: 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
+    background: #181818;
+    main {
+      @extend %basic-flex;
+      align-items: flex-start;
+      padding-top: 5rem;
+      justify-content: space-around;
+      div {
+        background: #EFEFEF;
+      }
+    }
   }
   a {
     text-decoration: none;
   }
 }
 
-
-
 header {
   background: #980000;
   @extend %basic-flex;
+  align-items: center;
   justify-content: space-between;
   height: 4rem;
-  h1 a {
-    color: white;
-    padding: 1rem;
-    font-weight: 100;
-    @extend %basic-link-white;
+  position: fixed;
+  width: 100%;
+  p a {
+    padding: 2rem 1rem;
+    font-weight: 200;
+    font-size: 2rem;
+    @include darken-link(#FFF);
   }
   nav {
     @extend %basic-flex;
@@ -70,16 +96,105 @@ header {
       font-size: 1.25rem;
       font-weight: 200;
       border-left: 2px solid white;
-      @extend %basic-link-white;
+      @include darken-link(#FFF);
     }
   }
 }
+.psu-heading {
+  font-size: 2.5rem;
+  font-weight: 200;
+  text-align: center;
+  padding: 0;
+  color: #980000;
+  margin: .5rem auto 1rem;
 
-h1 {
-  font-family: Arial;
-  color: pink;
 }
-div.login-form {
-  float: right;
-  padding-right: 25%;
+
+
+.posts-holder {
+  width: 50%;
+  position: relative;
+  .post-box {
+    margin: 1rem;
+    .post-title {
+      @extend .psu-heading;
+      text-align: left;
+      margin: .5rem;
+      a {
+        color: #980000;
+        text-align: left;
+        @include darken-link(#980000);
+      }
+    }
+    .post-links-holder {
+      @extend %basic-flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 0 .5rem 0 0;
+      .post-links, .post-author {
+        margin: 0;
+        padding: 0;
+        text-align: right;
+        font-style: italic;
+        color: black;
+        font-size: 1.5rem;
+        font-weight: 200;
+        display: inline-block;
+        a {
+          color: black;
+          @include lighten-link(#000);
+        }
+      }
+      .post-author {
+        margin-left: .5rem;
+        font-size: 1.7rem;
+        font-style: normal;
+      }
+      hr {
+        width: 98%;
+        color: #777;
+      }
+    }
+  }
+}
+.form-holder {
+  width: 18rem;
+  height: auto;
+  input[type=text], input[type=password], input[type=email] {
+    font-size: 1.35rem;
+    font-weight: 200;
+    display: block;
+    margin: .5rem auto;
+    padding: .35rem;
+    border: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+  }
+  button, a {
+    width: 70%;
+    margin: .5rem auto 1.5rem;
+    padding: .35rem;
+    background: #980000;
+    color: white;
+    font-weight: 200;
+    border: none;
+    font-size: 1.5rem;
+    text-align: center;
+    display: block;
+    &:hover {
+      background: #B20000;
+    }
+    &:active {
+      background: #720000;
+    }
+  }
+  .notice {
+    text-align: center;
+    margin: 1rem;
+    span {
+      color: #980000;
+      font-size: 1.35rem;
+      font-weight: 100;
+    }
+  }
 }
