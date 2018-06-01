@@ -17,18 +17,13 @@ class User < ApplicationRecord
   end 
   
   # written or commented on are the only option
-  def num_things(written_or_commented_on)
-    if written_or_commented_on == "written"
-      text = written_or_commented_on.strip
-      things = self.posts.count
-    else 
-      text = written_or_commented_on.strip
-      things = self.commented_posts.count
-    end 
+  def num_things(write_or_comment)
+    return write_or_comment == "written" ? self.posts.count : self.commented_posts.count
+  end 
 
-    text = things > 0 ? "#{text} #{things}" : "not #{text} any"
-    num = things 
-    return {text: text, num: num}
+  def num_things_words(w_o_c)
+    things_count = num_things(w_o_c)
+    return things_count > 0 ? "#{w_o_c} #{things_count}" : "not #{w_o_c} any"
   end 
 
 

@@ -17,29 +17,12 @@ class ApplicationController < ActionController::Base
   helper_method :matched_user?, :logged_in?
 
   def nice_format(user, text)
-    if matched_user?(user) 
-      str = "You have"
+    str = matched_user?(user) ? "You have" : "#{user.username} has"
+    if user.num_things(text) == 1
+      return "#{str} #{user.num_things_words(text)} post"
     else 
-      str = "#{user.username} has"
+      return "#{str} #{user.num_things_words(text)} posts"
     end 
-    num = user.num_things(text)[:num]
-    if num == 1
-      return str + " " + user.num_things(text)[:text] + " post"
-    else 
-      return str + " " + user.num_things(text)[:text] + " posts"
-    end 
-    
   end 
-
-  def nice_format_posts_commented(user)
-    if matched_user?(user)
-      str = "You have"
-    else
-      str = "#{user.username} has"
-    end
-
-    return str + " " + pluralize(user.num_posts, "post")
-
-  end
 
 end
