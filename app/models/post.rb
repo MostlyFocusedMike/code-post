@@ -5,6 +5,6 @@ class Post < ApplicationRecord
   attr_accessor :commentor_count
 
   def has_link?
-    !!self.url && self.url =~ /\w/ 
+    !!self.url && self.url =~ /\w/
   end
 end
