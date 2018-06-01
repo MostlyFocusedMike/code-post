@@ -8,5 +8,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }
   validates_confirmation_of :password
 
+  def num_posts 
+    self.posts.count > 0 ? "written #{self.posts.count}" : "not written any"
+  end 
 
 end
