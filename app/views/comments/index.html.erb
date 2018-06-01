@@ -1,6 +1,9 @@
 <div class="form-holder wide">
 <%= render 'users/user' %>
-<p class="psu-heading-2 left"><%= link_to "see posts by #{@user.username}", user_path(@user) %><%= "Posts #{@user.username} Commented On" %></p>
+<p class="psu-heading-2 left">
+  <%= link_to "see posts by #{@user.username}", user_path(@user) %>
+  <%= @nice_format_posts_commented %>
+</p>
 
   <div class="user-posts">
     <%@user.commented_posts.uniq.each do |post| %>

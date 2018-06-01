@@ -2,7 +2,7 @@
 <%=render 'user'%>
 <p class="psu-heading-2 left">
    <%= link_to "see posts #{@user.username} commented on", user_comments_path(@user) %>
-   <%= @user.username %> has <%= pluralize(@user.num_posts, "posts") %>
+   <%= @nice_format_posts_written %>
 </p>
 
 <div class="user-posts">

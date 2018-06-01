@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :edit_password]
 
   def show
+    @nice_format_posts_written = nice_format(@user, "written")
   end
 
   def new

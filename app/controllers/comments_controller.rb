@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def index
-    
     @user = User.find(params[:user_id])
+    @nice_format_posts_commented = nice_format(@user, "commented on")
   end
   def create
     # the request.referer returns the page the form came from:
