@@ -288,6 +288,15 @@ textarea {
   }
 }
 
+.log-in-warning {
+  font-weight: 200;
+  font-size: 1.25rem;
+  text-align: center;
+  a {
+    @include lighten-link(#000);
+  }
+}
+
 form {
   input[type=submit] {
     width: auto;
