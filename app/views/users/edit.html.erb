@@ -1,10 +1,16 @@
-<h1>edit page</h1>
-<%= form_for @user do |f| %>
-<%=render partial: 'form', locals: {f: f}%>
-<%= f.label :bio %>
-<%= f.text_area :bio %>
-<br>
-<%= f.submit %>
-<% end %>
-<br><br>
-<%= link_to "Edit password", edit_password_path %>
+<div class="form-holder">
+  
+  <p class="psu-heading">edit page</p>
+  <%= form_for @user do |f| %>
+  <%=render partial: 'form', locals: {f: f}%>
+  <%= f.text_area :bio %>
+  <br>
+ 
+  <button type="submit">update info</button>
+
+
+  <% end %>
+  <br><br>
+  <%= link_to "edit password", edit_password_path %>
+  <%= link_to "back to user ", user_path(@user) %>
+</div>
