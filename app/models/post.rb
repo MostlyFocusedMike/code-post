@@ -7,4 +7,11 @@ class Post < ApplicationRecord
   def has_link?
     !!self.url && self.url =~ /\w/
   end
+  def comment_count
+    self.comments.length
+  end
+
+  def unique_user_count #im dumb
+    self.users.uniq.length
+  end
 end
