@@ -18,7 +18,7 @@ class User < ApplicationRecord
   
   # written or commented on are the only option
   def num_things(write_or_comment)
-    return write_or_comment == "written" ? self.posts.count : self.commented_posts.count
+    return write_or_comment == "written" ? self.posts.count : self.commented_posts.uniq.count
   end 
 
   def num_things_words(w_o_c)
