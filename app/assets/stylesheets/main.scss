@@ -79,6 +79,7 @@ header {
   justify-content: space-between;
   height: 4rem;
   position: fixed;
+  z-index: 10;
   width: 100%;
   p a {
     padding: 2rem 1rem;
@@ -123,7 +124,11 @@ header {
 
 .posts-holder {
   width: 50%;
+  min-width: 380px;
   position: relative;
+  overflow: scroll;
+  height: 40rem;
+  margin-bottom: 1rem;
   .post-box {
     margin: 1rem;
     .post-content, .post-author-main{
