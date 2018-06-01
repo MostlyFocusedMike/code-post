@@ -107,15 +107,47 @@ header {
   padding: 0;
   color: #980000;
   margin: .5rem auto 1rem;
-
+}
+.psu-heading-2 {
+  font-size: 1.75rem;
+  font-weight: 200;
+  text-align: center;
+  padding: 0;
+  margin: 1rem;
+  color: #980000;
 }
 
+.left {
+  text-align: left;
+}
 
 .posts-holder {
   width: 50%;
   position: relative;
   .post-box {
     margin: 1rem;
+    .post-content, .post-author-main{
+      margin-left: 1rem;
+      font-size: 1.5rem;
+      font-weight: 200;
+    }
+    .post-author-main {
+       text-align: right;
+       margin-right: 1rem;
+       a {
+         color: #000;
+         @include lighten-link(#000);
+       }
+    }
+    .post-url {
+      text-align: center;
+      font-size: 1.5rem;
+       a {
+         text-decoration: underline;
+         color: #000;
+         @include lighten-link(#000);
+       }
+    }
     .post-title {
       @extend .psu-heading;
       text-align: left;
@@ -145,21 +177,25 @@ header {
           @include lighten-link(#000);
         }
       }
+
       .post-author {
         margin-left: .5rem;
         font-size: 1.7rem;
         font-style: normal;
       }
-      hr {
-        width: 98%;
-        color: #777;
-      }
+
     }
   }
 }
+hr {
+  width: 98%;
+  color: #777;
+}
 .form-holder {
-  width: 18rem;
+  width: auto;
+  min-width: 20rem;
   height: auto;
+  padding: 1rem;
   input[type=text], input[type=password], input[type=email] {
     font-size: 1.35rem;
     font-weight: 200;
@@ -188,13 +224,78 @@ header {
       background: #720000;
     }
   }
-  .notice {
+}
+button {
+  width: 70%;
+  max-width: 18rem;
+  margin: .5rem auto 1.5rem;
+  padding: .35rem;
+  background: #980000;
+  color: white;
+  font-weight: 200;
+  border: none;
+  font-size: 1.5rem;
+  text-align: center;
+  display: block;
+  &:hover {
+    background: #B20000;
+  }
+  &:active {
+    background: #720000;
+  }
+}
+
+.notice {
+  text-align: center;
+  margin: 1rem;
+  span {
+    color: #980000;
+    font-size: 1.35rem;
+    font-weight: 100;
+  }
+}
+
+textarea {
+  margin: 0 auto;
+  display: block;
+  width: 20rem;
+  height: 5rem;
+  border: none;
+  font-size: 1rem;
+}
+
+.comment-content {
+  margin: 1rem;
+  font-size: 1.25rem;
+  font-weight: 200;
+}
+.comment-author {
+  font-size: 1rem;
+  margin: 1rem 2rem;
+  a {
+   color: #000;
+   text-decoration: underline;
+   @include lighten_link(#000);
+  }
+}
+
+form {
+  input[type=submit] {
+    width: auto;
+    margin: .5rem auto 1.5rem;
+    padding: .5rem;
+    background: #522;
+    color: white;
+    font-weight: 200;
+    border: none;
+    font-size: 1rem;
     text-align: center;
-    margin: 1rem;
-    span {
-      color: #980000;
-      font-size: 1.35rem;
-      font-weight: 100;
+    display: block;
+    &:hover {
+      background: #B20000;
+    }
+    &:active {
+      background: #720000;
     }
   }
 }

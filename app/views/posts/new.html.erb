@@ -1,12 +1,13 @@
-<h1>NEW POST FORM</h1>
-<%= form_for @post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %><br><br>
+<div class="form-holder">
+  <p class="psu-heading">new post</p>
+  <% @post.errors.full_messages.each do |error| %>
+    <div class="notice"><span>*</span><%= error %></div>
+  <% end %>
+  <%= form_for @post do |f| %>
+    <%= f.text_field :title, placeholder: "title" %><br><br>
+    <%= f.text_area :content, placeholder: "main content" %><br><br>
 
-  <%= f.label :content %><br>
-  <%= f.text_area :content %><br><br>
-
-  <%= f.label :url, "Link" %><br>
-  <%= f.text_field :url, placeholder: "Optional link goes here"%><br><br>
-  <%= f.submit %>
-<% end %>
+    <%= f.text_field :url, placeholder: "Optional url to article/project"%><br><br>
+    <%= f.submit %>
+  <% end %>
+</div>

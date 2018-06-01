@@ -1,57 +1,47 @@
-<h1><%= @post.title %></h1>
-<p>By <%= link_to @post.user.username, user_path(@post.user) %></p>
-<p><%= @post.content %></p>
-<% if @post.has_link? %>
-  <p><%= link_to "Link", @post.url, target: :_blank %> </p>
-<% end %>
+<div class="posts-holder">
+  <div class="post-box">
+    <p class="post-title"><%= @post.title %></p>
+    <p class="post-content"><%= @post.content %></p>
+    <% if @post.has_link? %>
+      <p class="post-url">
+        <%= link_to "visit link", @post.url, target: :_blank %> 
+      </p>
+    <% end %>
+    <p class="post-author-main">
+      By <%= link_to @post.user.username, user_path(@post.user) %>
+    </p>
+    <hr />
+  </div>
+  <% if logged_in? %>
 
-
-
-
-
-
-
-
-<br />
-<br />
-
-<% if logged_in? %>
-
-  <h2>Leave a Comment</h2>
+  <p class="psu-heading-2">Leave a Comment</p>
   <% if flash[:comment_warning] %>
-    <p><%= flash[:comment_warning] %></p>
+    <div class="notice"><span>*</span><%= flash[:comment_warning] %></div>
   <% end %>
 
   <%= form_for [@post, @comment] do |f| %>
     <%= f.text_area :content %><br />
-    <%= f.submit "Post Comment" %>
+    <button type="submit">post comment</button>
   <% end %>
 
 <% else %>
   <p>Please <%= link_to "log in", login_path %> to leave a comment!</p>
 <% end %>
 
-<h2>Comments</h2>
+<p class="psu-heading-2 left">comments</p>
 <% @post.comments.each do |comment| %>
   <hr />
-  <%= comment.content %><br>
-  <p>-<%= link_to comment.user.username, user_path(comment.user) %></p>
+  <p class="comment-content"><%= comment.content %></p>
+  <p class="comment-author">-<%= link_to comment.user.username, user_path(comment.user) %></p> 
   <% if matched_user?(comment.user) %>
     <%= button_to "Delete Comment", post_comment_path(@post, comment), method: "delete" %>
   <% end %>
   <hr />
 <% end %>
-<br />
-<br />
-<br />
-<br />
+
 <% if matched_user?(@post.user) %>
+  <br /><br /><br />
   <%= button_to 'Delete Post', post_path(@post), method: 'delete' %>
 <% end %>
+</div>
 
-<p>------------------------------------------------------------------------------</p>
-<h3>Debugging stuff</h3>
-<% if logged_in? %>
-  <p>You are logged in and your session id is:</p>
-  <%= session[:user_id] %>
-<% end %>

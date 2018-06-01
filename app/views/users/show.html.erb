@@ -1,3 +1,4 @@
+
 <%=render 'user'%>
 <%# REMEMBER TO CHANGE THE PATH OF THE PLACEHOLDER  %>
 <h3>Posts By <%= @user.username %> <em>See <%= link_to "posts #{@user.username} commented on", user_comments_path(@user) %></em></h3>
