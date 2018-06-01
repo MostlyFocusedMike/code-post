@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ username: 'Star Wars' }, { username: 'Lord of the Rings' }])
 #   Character.create(username: 'Luke', movie: movies.first)
 
-User.destroy_all 
+User.destroy_all
 Post.destroy_all
 Comment.destroy_all
 
@@ -22,5 +22,10 @@ karen.posts.create(title: "Moonlight on the lake", content: "Moonlight on the la
 karen.posts.create(title: "My car broke", content: "Honestly could this day get any worse? No.")
 
 sarah.comments.create(post: Post.all[0], content: "this is the first comment on the first post")
+chris.comments.create(post: Post.all[0], content: "this is the second comment on the first post")
+mike.comments.create(post: Post.all[0], content: "Nice haiku, I think?")
+chris.comments.create(post: Post.all[0], content: "this is the fourth comment on the first post")
+
+
 chris.comments.create(post: Post.all[1], content: "Oh man, this post is 2nd best")
 mike.comments.create(post: Post.all[2], content: "Nice haiku, I think?")
