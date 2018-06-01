@@ -310,10 +310,15 @@ form {
 }
 
 .user-profile {
-  @extend %basic-flex;
-  align-items: flex-start;
-  justify-content: center;
   width: 100%;
+  @extend %basic-flex;
+  justify-content: space-between;
+  .username-bio-holder{
+
+  }
+  .edit-button-holder {
+
+  }
  }
 .wide {
   width: 50%;

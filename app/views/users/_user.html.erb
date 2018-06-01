@@ -1,9 +1,11 @@
 <div class="user-profile">
-  <div>
+  <div "username-bio-holder">
     <p class="psu-heading left">  <%= @user.username %></p> 
     <p class="comment-content left"><%= @user.bio %></p>
   </div>
   <% if matched_user?(@user) %>
-    <%=link_to "Edit User info", edit_user_path(@user)%><br>
+    <div class="edit-button-holder">
+      <%=link_to "Edit User info", edit_user_path(@user)%><br>
+    </div>
   <% end %>
 </div>
