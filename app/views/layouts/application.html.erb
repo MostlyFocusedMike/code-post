@@ -7,19 +7,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i" rel="stylesheet">
   </head>
   <body>
-    <nav>
-      <%= link_to "Posts", posts_path %> |
+    <header>
+      <h1><%= link_to "Code Post", posts_path %></h1>
+      <nav>
 
-      <% if logged_in? %>
-        <%= link_to "Account", user_path(session[:user_id]) %> |
-        <%= link_to "Log Out", logout_path, method: "post" %>
-      <% else %>
-        <%= link_to "Sign Up", new_user_path %> |
-        <%= link_to "Log in", login_path %>
-      <% end %>
-    </nav>  
-   <%= yield %>
+        <%= link_to "Posts", posts_path %>
+        <% if logged_in? %>
+          <%= link_to "Account", user_path(session[:user_id]) %> 
+          <%= link_to "Log Out", logout_path, method: "post" %>
+        <% else %>
+          <%= link_to "Sign Up", new_user_path %> 
+          <%= link_to "Log in", login_path %>
+        <% end %>
+      </nav>  
+ 
+    </header>
+      <%= yield %>
   </body>
 </html>
