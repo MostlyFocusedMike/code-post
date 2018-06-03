@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :users, through: :comments
   validates :title, :content, presence: true
+  validates :url, length: { minimum: 0 }, url: true
   attr_accessor :commentor_count
 
   def has_link?

@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :username, :email, presence: true
   validates :username, uniqueness: { case_sensitive: false }
   validates :email, uniqueness: { case_sensitive: false }
+  validates :email, presence: true, email: true
   validates_confirmation_of :password
 
   def num_posts 
@@ -25,6 +26,7 @@ class User < ApplicationRecord
     things_count = num_things(w_o_c)
     return things_count > 0 ? "#{w_o_c} #{things_count}" : "not #{w_o_c} any"
   end 
+
 
 
 end

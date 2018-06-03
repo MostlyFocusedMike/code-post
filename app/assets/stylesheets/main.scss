@@ -142,8 +142,8 @@ header {
          color: #000;
          @include lighten-link(#000);
        }
-    }
-    .post-url {
+     }
+     .post-url {
       text-align: center;
       font-size: 1.5rem;
        a {
