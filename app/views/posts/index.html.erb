@@ -1,4 +1,16 @@
- <div class="posts-holder">
+<div class="login-create-holder">
+  
+<% if logged_in? %>
+    <p class="psu-heading">share some code</p>
+    <%= link_to "create a post", new_post_path %>
+  <% else %>
+    <p class="psu-heading">log in</p>
+    <%= render 'sessions/login_form' %>
+  </div>
+<% end %>
+</div>
+
+<div class="main-posts-holder">
      <% @posts.each do |post| %>
        <div class="post-box">
          <p class="post-title"><%= link_to post.title, post_path(post) %></p>
@@ -15,16 +27,6 @@
      <% end %>
 </div>
 
-<div class="form-holder">
-  
-<% if logged_in? %>
-    <p class="psu-heading">share some code</p>
-    <%= link_to "create a post", new_post_path %>
-  <% else %>
-    <p class="psu-heading">log in</p>
-    <%= render 'sessions/login_form' %>
-  </div>
-<% end %>
 
 
-</div>
+

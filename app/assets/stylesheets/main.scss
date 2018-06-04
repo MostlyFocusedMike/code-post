@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// all this sass is atrocious and I'm sorry, I wanted to refactor
+// before deploying but such is life. 
+// this sass is basically just scatterbrained css.
+
+
 %compat-flex {
   display: -webkit-flex;
   display: flex;
@@ -60,7 +65,7 @@ html {
     main {
       @extend %basic-flex;
       align-items: flex-start;
-      padding-top: 5rem;
+      padding-top: 6rem;
       justify-content: space-around;
       div {
         background: #EFEFEF;
@@ -125,8 +130,6 @@ header {
   width: 50%;
   min-width: 380px;
   position: relative;
-  overflow: scroll;
-  height: 46rem;
   margin-bottom: 1rem;
   .post-box {
     margin: 1rem;
@@ -192,6 +195,60 @@ header {
     }
   }
 }
+
+.main-posts-holder {
+  
+  @extend .posts-holder;
+  position: relative;
+  left: -14rem;
+  min-width: 35rem;
+}
+
+.login-create-holder {
+  
+  @extend .form-holder;
+  position: fixed;
+  top: 6rem;
+  right: 4rem;
+}
+// please
+// do not judge this atrocious code it's hideous, I just didn't have
+// time to make it properly mobile responsive
+// i am so tired and so sorry
+@media only screen and (max-width: 656px) {
+  html body main {
+    padding-top: 4rem;
+  }
+  header {
+    height: 3rem;
+    p a {
+      font-size: 1.5rem;
+    }
+    nav a {
+      font-size: .8rem;
+      padding: .4rem;
+      margin: 0;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+ .login-create-holder {
+    position: relative;
+    right: 0rem;
+    top: 0rem;
+    width: 100% !important;
+    margin: 1rem auto;
+  }
+  .main-posts-holder {
+    left: auto;
+    width: 100%;
+    min-width: 100%;
+    margin: 1rem auto;
+  }
+}
 hr {
   width: 98%;
   color: #777;
@@ -232,6 +289,7 @@ hr {
     }
   }
 }
+
 button {
   width: auto;
   max-width: 18rem;
