@@ -12,15 +12,15 @@ Comment.destroy_all
 
 
 sarah = User.create(username: "SPcodes94", bio: "Just a girl and her computer", email: "sarahp@gmail.com", password: "sarah")
-sarah = User.create(username: "Linux4lyfe", bio: "Ask me about my build", email: "Jared@gmail.com", password: "jared")
+jared = User.create(username: "Linux4lyfe", bio: "Ask me about my build", email: "Jared@gmail.com", password: "jared")
 chris = User.create(username: "junkindonuts", bio: "Get that rat away from my code", email: "chris@gmail.com", password: "dansmeels")
-jared = User.create(username: "MostlyFocusedMike", bio: "I need to stop talking about Vim", email: "mike@gmail.com", password: "mike")
+mike = User.create(username: "MostlyFocusedMike", bio: "I need to stop talking about Vim", email: "mike@gmail.com", password: "mike")
 
 
 mike.posts.create(title: "finished the site! I hope you like it", content: "Chris and I built this site as part of the Access Labs program. It's built in rails and Sass, and we lost a lot of sleep making it look presentable. Check out the source code at the link below.", url: "https://github.com/MostlyFocusedMike/code-post")
 sarah.posts.create(title: "My Friends Cool Blog", content: "My friend's blog. such an avid blogger myself so i thought I'd share.", url:'https://junkindonuts.wordpress.com/2018/05/23/writing-efficient-code-and-big-o-notation/')
 chris.posts.create(title: "I really LOVE good docs", content: "docs 4 lyfe", url:'https://www.rubydoc.info/github/teamcapybara/capybara/master')
-jared.posts.create(title: "Anybody have any thoughts on the latest raspberry pi?", content: "I've been thinking of getting another for a home media server, should I pay the extra money for the latest version?")
+jared.posts.create(title: "Anybody have any thoughts on the latest raspberry pi?", content: "I've been thinking of getting another for a home media server, should I pay the extra money for the latest version?", url: "")
 
 chris.comments.create(post: Post.all[0], content: "Woo! we did it")
 
